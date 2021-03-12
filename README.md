@@ -22,6 +22,9 @@ Next, you'll need to create two local folders for the plex config and data volum
 
 Using the above folders, run the following to start plex:
 
+    docker build -t plex-server-docker-rpi .
+
+
     docker run \
       -d \
       --name plex \
@@ -30,7 +33,7 @@ Using the above folders, run the following to start plex:
       --restart always \
       --volume $(echo $HOME)/media/plex/config:/config \
       --volume $(echo $HOME)/media/plex/data:/data \
-      greensheep/plex-server-docker-rpi:latest
+      plex-server-docker-rpi:latest
 
 After around 30 seconds, the Plex web admin should be available at `http://{ip address of Pi}:32400/web`.
 
